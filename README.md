@@ -68,15 +68,14 @@ Input (224x224x3) ──► ResNet50 (Frozen) ──► GlobalAvgPooling ──�
 
 ---
 
-## 4. Current Benchmarks
+## 4. Model Comparison
 
-Both setups were trained under identical optimization constraints to get a clear picture of how much a pre-trained network helps performance.
+| Model | Accuracy | Loss |
+|------|----------|------|
+| CNN Baseline | 83.41% | 0.5558 |
+| ResNet50 Transfer Learning | 99.12% | 0.0229 |
 
-| Model Pipeline | Validation Accuracy | Notes |
-| :--- | :--- | :--- |
-| **Custom CNN Baseline** | 84.8% | Strong baseline, but limited by learning features entirely from scratch on a smaller local dataset split. |
-| **ResNet50 Transfer Learning** | >90.0% | Significantly higher convergence rate and better validation accuracy right out of the gate by leveraging pre-existing spatial features. |
-
+The ResNet50 transfer learning model significantly outperformed the custom CNN baseline. This shows that pretrained deep learning models can extract more powerful image features and achieve higher accuracy with less training time.
 ---
 
 ## 5. Setting Up and Running the Code
@@ -105,6 +104,10 @@ pip install -r requirements.txt
 3. Train the transfer learning model:
    ```bash
    cd ../resnet50_transfer && python train.py
+   ```
+4. evaluate models:
+   ```bash
+   cd ../ python evaluate_models.py
    ```
 ---
 
