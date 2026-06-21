@@ -15,7 +15,9 @@ dog-cat-classification/
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
-├── evaluate_models.py
+│
+├── evaluation/
+│   ├── evaluate_models.py
 │
 ├── data/
 │   ├── train/
@@ -292,6 +294,7 @@ cd ..
 ### Step 6: Compare Model Accuracy and Loss
 
 ```bash
+cd evaluation
 python evaluate_models.py
 ```
 
